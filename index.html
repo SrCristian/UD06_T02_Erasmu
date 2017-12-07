@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- Scripts -->
+  <script type="text/javascript" src="scripts/googleMap.js"></script>
+  <script type="text/javascript" src="scripts/index.js"></script>
+  <script type="text/javascript" src="scripts/dataErasmu.js"></script>
+  <script type="text/javascript" src="scripts/readErasmu.js"></script>
+  <script type="text/javascript" src="scripts/Movilidad.js"></script>
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="styles/index.css">
+
+  <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- For toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+</head>
+<body onload="loadPage()">
+  <div class="contenedor col-xs-12">
+    <header class="col-xs-12">
+      <h2>Buscador de Erasmu</h2>
+    </header>
+    <aside class="mapa col-xs-12 col-sm-7">
+      <div id="googleMap"></div>
+      <!-- googleMap -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS51gNuppWroxz2z6oNapn987dEYEuzK0&callback=myMap"></script>
+    </aside>
+    <aside class="datos col-xs-12 col-sm-5">
+      <form class="formularioDatos">
+        <fieldset>
+          <legend>Datos de Erasmu</legend>
+          <div class="col-xs-12 col-sm-6">
+            <label for="tipo">Tipo de movilidad.</label>
+            <select id="tipo" class="tipo" name="tipo">
+              <option value="Pr">Profesor</option>
+              <option value="GS">Grado Superior</option>
+              <option value="GM">Grado Medio</option>
+            </select>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <label for="toogle">Buscar por...</label>
+              <input id="toogle" onchange="readFileJSON()" type="checkbox" checked data-toggle="toggle" data-on="Ciclo" data-off="País">
+          </div>
+        </fieldset>
+        <div class="lista col-xs-12">
+          <ul id="listaCiclo">
+
+          </ul>
+        </div>
+        <input id="buscar" class="btn btn-primary" type="button" name="buscar" value="Buscar">
+      </form>
+    </aside>
+    <footer class="col-xs-12">
+      <h3>Lista de ciclos</h3>
+      <div class="lista col-xs-12">
+        <ul id="listaErasmu">
+
+        </ul>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
